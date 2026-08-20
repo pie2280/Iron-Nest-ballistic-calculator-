@@ -8,4 +8,4 @@ A very simple program to calculate gun elevation and a flight time. May be usefu
 - type exit in any position to close a program.
 ## Trivia
 Project is just a personal practice.
-any commotions may be a good idea.
+any suggestions may be a good idea.
