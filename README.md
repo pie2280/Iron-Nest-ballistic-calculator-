@@ -1,6 +1,7 @@
 # Iron-Nest-ballistic-calculator
-Ballistic calculator for iron nest. That it. No interface, launch in terminal.
-Usage:
+A very simple program to calculate gun elevation and a flight time. May be useful in situation of malfunction of onboard calculator.
+
+## Usage
 - type a range to the target in meters.
 - type a amount of gunpowder charges.
 - receive the elevation and flight time.
