@@ -1,6 +1,10 @@
 # Iron-Nest-ballistic-calculator
 A very simple program to calculate gun elevation and a flight time. May be useful in situation of malfunction of onboard calculator.
 
+## Installation
+- download and install lua 5.3
+- copy calc.lua
+- run file with the terminal
 ## Usage
 - type a range to the target in meters.
 - type a amount of gunpowder charges.
