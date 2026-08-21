@@ -1,6 +1,8 @@
 local function calc(x,y)
   local angle= (60*tonumber(x))/(5000*tonumber(y))
-  local Ftime = (tonumber(x)/(tonumber(y)*5000))*38
+  local Ttable={3775/18,2350/9,1148/3,950/3,23375/36,700}
+  print(tonumber(Ttable[tonumber(y)]))
+  local Ftime =x/(Ttable[tonumber(y)])
   return angle,Ftime
 end
 
@@ -22,7 +24,7 @@ while true do
     else
       io.write("elevation: ")
       io.write(string.format("%.2f", Rrange).."°".."\n")
---      io.write(string.format("flight time: %.2f seconds\n", Rtime))
+      io.write(string.format("flight time: %.2f seconds\n", Rtime))
     end
   end
   print("----------------")
