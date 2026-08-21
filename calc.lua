@@ -1,6 +1,6 @@
 local function calc(x,y)
   local angle= (60*tonumber(x))/(5000*tonumber(y))
-  local Ttable={3775/18,2350/9,1148/3,950/3,23375/36,700}
+  local Ttable={3775/18,2350/9,1148/3,4750/9,23375/36,700}
   local Ftime =x/(Ttable[tonumber(y)])
   return angle,Ftime
 end
