@@ -22,7 +22,7 @@ while true do
     else
       io.write("elevation: ")
       io.write(string.format("%.2f", Rrange).."°".."\n")
-      io.write(string.format("flight time: %.2f seconds\n", Rtime))
+--      io.write(string.format("flight time: %.2f seconds\n", Rtime))
     end
   end
   print("----------------")
