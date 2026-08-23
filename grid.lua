@@ -6,13 +6,11 @@ local function parse(cords)
   local y = (tonumber(pri2)-1)*1000+tonumber(sec2)*100+50
   return x,y,0
 end
-
 local function convert(x,y)
   if tonumber(x)==nil or tonumber(y)==nil then return nil, 4 end
   if x>20000 or y>10000 or x<0 or y<0 then return nil,5 end
   if x == 20000 then x = 19950 end
   if y == 10000 then y = 9950 end
-  
   local convertTable ={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"}
   local pri1 = convertTable[math.floor(x/1000)+1]
   local pri2 = math.floor(y/1000)+1
@@ -20,3 +18,4 @@ local function convert(x,y)
   local sec2 = math.floor((y%1000)/100)
   return string.format("%s%d %d:%d",pri1,pri2,sec1,sec2), 0
 end
+return { parse = parse, convert = convert }
