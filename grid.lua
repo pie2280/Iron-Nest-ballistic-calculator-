@@ -3,19 +3,23 @@
 local function parse(cords)
   local pri1,pri2,sec1,sec2 = string.match(cords,"(%a)(%d+)%s+(%d):(%d)%s*")
   if not pri1 then return nil,nil,3 end
-  local x = (parseTable[string.upper(pri1)]-1)*1000+tonumber(sec1)*100+50
-  local y = (tonumber(pri2)-1)*1000+tonumber(sec2)*100+50
+  if not parseTable[string.upper(pri1)] then return nil,nil,3 end
+  local pri2n, sec1n, sec2n = tonumber(pri2),tonumber(sec1),tonumber(sec2)
+  if pri2n<1 or pri2n>10 or sec1n<0 or sec1n>9 or sec2n<0 or sec2n>9 then return nil,nil,3 end
+  local x = (parseTable[string.upper(pri1)]-1)*1000+sec1n*100+50
+  local y = (pri2n - 1)*1000+sec2n*100+50
   return x,y,0
 end
 local function convert(x,y)
-  if tonumber(x)==nil or tonumber(y)==nil then return nil, 4 end
-  if x>20000 or y>10000 or x<0 or y<0 then return nil,5 end
-  if x == 20000 then x = 19950 end
-  if y == 10000 then y = 9950 end
-  local pri1 = convertTable[math.floor(x/1000)+1]
-  local pri2 = math.floor(y/1000)+1
-  local sec1 = math.floor((x%1000)/100)
-  local sec2 = math.floor((y%1000)/100)
+  local numx, numy= tonumber(x), tonumber(y)
+  if not numx or not numy then return nil, 4 end
+  if numx>20000 or numy>10000 or numx<0 or numy<0 then return nil,5 end
+  if numx == 20000 then numx = 19950 end
+  if numy == 10000 then numy = 9950 end
+  local pri1 = convertTable[math.floor(numx/1000)+1]
+  local pri2 = math.floor(numy/1000)+1
+  local sec1 = math.floor((numx%1000)/100)
+  local sec2 = math.floor((numy%1000)/100)
   return string.format("%s%d %d:%d",pri1,pri2,sec1,sec2), 0
 end
 return { parse = parse, convert = convert }
