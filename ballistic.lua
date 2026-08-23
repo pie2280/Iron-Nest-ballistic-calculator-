@@ -1,30 +1,11 @@
 local function calc(x,y)
-  local angle= (60*tonumber(x))/(5000*tonumber(y))
+  local numx,numy = tonumber(x),tonumber(y)
+  if not numx or not numy then return nil,nil,1 end
+  if numy>6 or numy<=0 or numx<0 then return nil,nil,1 end
+  local angle= (60*numx)/(5000*numy)
   local Ttable={3775/18,2350/9,1148/3,4750/9,23375/36,700}
-  local Ftime =x/(Ttable[tonumber(y)])
-  return angle,Ftime
+  local Ftime =numx/(Ttable[numy])
+  if angle>60 then return nil,nil,2 end
+  return angle,Ftime,0
 end
-
-print("Iron Nest, ballistic calculator")
-while true do
-  io.write("target range:  ")
-  local range = io.read()
-  if range=="exit" then break end
-  
-  io.write("powder charges: ")
-  local amount = io.read()
-  if amount=="exit" then break end
-  if type(tonumber(range))=="nil" or type(tonumber(amount))=="nil" then
-    print("invalid argument")
-  else
-    local Rrange,Rtime = calc(range,amount)
-    if Rrange >60.00 then
-      print("Out of range!")
-    else
-      io.write("elevation: ")
-      io.write(string.format("%.2f", Rrange).."°".."\n")
-      io.write(string.format("flight time: %.2f seconds\n", Rtime))
-    end
-  end
-  print("----------------")
-end
+return {calc=calc}
