@@ -1,6 +1,8 @@
 # Iron-Nest-ballistic-calculator
 A very simple program to calculate gun elevation and a flight time. May be useful in situation of malfunction of onboard calculator.
 
+#selected beta branch, there no working program yet. Select the main branch to get access to simplified version of program.
+
 ## Installation
 - download and install lua 5.3
 - copy calc.lua
