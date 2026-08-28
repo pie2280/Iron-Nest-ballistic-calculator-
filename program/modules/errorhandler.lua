@@ -23,8 +23,8 @@ local db = {
   [12] = "Attempted call of non existing database key. this is unusual condition. please check that program is up to date. Reinstall if required.\n"
 }
 local time = {
-  [13] = "invalid time format or detected on Tparse input. Check input correction and try again.",
-  [14] = "detected NaN value on the Tconvert input. Check input correction and try again."
+  [13] = "invalid time format or detected on Tparse input. Check input correction and try again.\n",
+  [14] = "detected NaN value on the Tconvert input. Check input correction and try again.\n"
 }
 local errorList ={
   BALLISTIC = ballistic,
