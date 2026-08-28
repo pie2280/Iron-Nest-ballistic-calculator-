@@ -6,6 +6,6 @@ local function calc(x,y)
   local angle= (60*numx)/(5000*numy)
   local Ftime =numx/(Ttable[numy])
   if angle>60 then return nil,nil,2 end
-  return angle,Ftime,0
+  return angle,Ftime,"ballistic",0
 end
 return {calc=calc}

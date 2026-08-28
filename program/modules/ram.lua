@@ -36,7 +36,7 @@ local function cleardata()
   for k in pairs(data) do
     data[k]=nil
   end
-  return 0
+  return "ramoverride",0
 end
 return {addpage=addpage,
   adddata=adddata,
