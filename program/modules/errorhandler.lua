@@ -17,10 +17,14 @@ local ram = {
   [10] = "Attemted call of non existing data. Check input correction, try again or proceed with ramoverride command or full program restart.\n"
 }
 local help = {
-  [11] = "Attempted call of non existing help page. Please check input correction. This may also be caused by a lack of help.lua update."
+  [11] = "Attempted call of non existing help page. Please check input correction. This may also be caused by a lack of help.lua update.\n"
 }
 local db = {
-  [12] = "Attempted call of non existing database key. this is unusual condition. please check that program is up to date. Reinstall if required."
+  [12] = "Attempted call of non existing database key. this is unusual condition. please check that program is up to date. Reinstall if required.\n"
+}
+local time = {
+  [13] = "invalid time format or detected on Tparse input. Check input correction and try again.",
+  [14] = "detected NaN value on the Tconvert input. Check input correction and try again."
 }
 local errorList ={
   BALLISTIC = ballistic,
@@ -28,7 +32,8 @@ local errorList ={
   MAIN = main,
   RAM = ram,
   HELP = help,
-  DB = db
+  DB = db,
+  TIME = time
 }
 local persiststring= "if error persist, please write an issue on project repository page.\n"
 local unknown="undocumented error detected, this may be caused because of mistype in running module or lack of handler update. Please write an issue on project repository page.\n"
