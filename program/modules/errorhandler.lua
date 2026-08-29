@@ -11,10 +11,10 @@ local main = {
   [6] = "Unkown command. Check input, call help command, and try again.\n"
 }
 local ram = {
-  [7] = "Page creating error — page already exist. Please clear ram via ramoverride or ptoceed with full program restart.\n",
+  [7] = "Page creating error — page already exist. Please clear ram via ramoverride or proceed with full program restart.\n",
   [8] = "Attempted call of non existing page. Please check your command chain and try again. You may try memory clear via ramoverride or full program restart.\n",
-  [9] = "Attemted call of non existing cell. This is unusual condidion, proceed with ramoverride command or full program restart.\n",
-  [10] = "Attemted call of non existing data. Check input correction, try again or proceed with ramoverride command or full program restart.\n"
+  [9] = "Attempted call of non existing cell. This is unusual condidion, proceed with ramoverride command or full program restart.\n",
+  [10] = "Attempted call of non existing data. Check input correction, try again or proceed with ramoverride command or full program restart.\n"
 }
 local help = {
   [11] = "Attempted call of non existing help page. Please check input correction. This may also be caused by a lack of help.lua update.\n"
