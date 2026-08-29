@@ -1,5 +1,6 @@
 local Ttable={3775/18,2350/9,1148/3,4750/9,23375/36,700}
-local function calc(x,y)
+local function calc(tabl)
+  local x,y = table.unpack(tabl)
   local numx,numy = tonumber(x),tonumber(y)
   if not numx or not numy then return nil,nil,nil,1 end
   if numy>6 or numy<=0 or numx<0 or numy%1~=0 then return nil,nil,nil,1 end

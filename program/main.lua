@@ -8,7 +8,7 @@ local ram = require("ram")
 local calc = require("ballistic")
 local err = require("errorhandler")
 local grid = require("grid")
-local helpy = require("help") 
+local helpy = require("help")
 local commandTable ={
   ["parse"]=grid.parse,
   ["calculate"]=calc.calc,
@@ -40,7 +40,7 @@ local function execute(key,arg)
     ishelp=1
     result = {helpy.show("help")}
   else
-    result ={commandTable[key](table.unpack(arg))}
+    result ={commandTable[key](arg)}
   end
   if result[#result]~=0 then return err.handler(table.remove(result)) end
   table.remove(result)
