@@ -1,6 +1,7 @@
 local current_file = debug.getinfo(1, "S").source:sub(2)
 local script_dir = current_file:match("(.*[/\\])") or "./"
 package.path = package.path .. ";" .. script_dir .. "modules/?.lua"
+package.path = package.path .. ";" .. script_dir .. "units/?.lua"
 
 local format = require("format")
 local ram = require("ram")

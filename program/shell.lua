@@ -3,7 +3,6 @@ local script_dir = current_file:match("(.*[/\\])") or "./"
 package.path = package.path .. ";" .. script_dir .. "?.lua"
 
 local main = require("main")
-
 print("Iron Nest ballisic calculator")
 
 while true do
