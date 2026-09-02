@@ -4,19 +4,25 @@ package.path = package.path .. ";" .. script_dir .. "modules/?.lua"
 package.path = package.path .. ";" .. script_dir .. "units/?.lua"
 
 local format = require("format")
-local ram = require("ram")
+local ram = require("memtblrecunit")
 local calc = require("ballistic")
 local err = require("errorhandler")
 local grid = require("grid")
 local helpy = require("help")
+local pos = require("posdatamanager")
 local commandTable ={
   ["parse"]=grid.parse,
   ["calculate"]=calc.calc,
   ["convert"]=grid.convert,
-  ["ramoverride"]=ram.cleardata,
-  ["help"]=helpy.show
+  ["ramoverride"]=ram.ramoverride,
+  ["help"]=helpy.show,
+  ["addpos"]=pos.addpos,
+  ["removepos"]=pos.removepos,
+  ["changenestpos"]=pos.changenestpos,
+  ["clearreports"]=pos.clearreports
 }
-local function translate(cmd_str)local cmd
+local function translate(cmd_str)
+  local cmd
   local argTable = {}
   for argument in string.gmatch(cmd_str,"%S+") do
     if not cmd then
@@ -25,7 +31,8 @@ local function translate(cmd_str)local cmd
       table.insert(argTable,argument)
     end
   end
-  if #argTable==0 and (cmd~="ramoverride" and cmd~="help") then table.insert(argTable,"-h") end
+  if #argTable==0 and (cmd~="ramoverride" and cmd~="help" and cmd~="clearreports") then table.insert(argTable,"-h") end
+  if cmd=="addpos" and argTable[1]~="-h" then table.insert(argTable,'user') end
   return cmd,argTable
 end
 
