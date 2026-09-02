@@ -4,7 +4,7 @@ local ballistic = {
 }
 local grid = {
   [3]="Invalid argument at parse command, check input correction and try again.\n",
-  [4]="NaN argument detected on coordinate convertion input, check input correction and try again.\n",
+  [4]="NaN argument detected on coordinate conversion input, check input correction and try again.\n",
   [5]="coordintes input exceeded map limits, this may be possible with using target moving predictor or a similar program, check calculation chain correction and try again.\n"
 }
 local main = {
