@@ -163,5 +163,10 @@ local function clearreports()
 ram.removepage(ram.data.posdatamanager,'report')
 ram.addpage(ram.data.posdatamanager,'report')
 end
-return {addpos=addpos,clearid=clearid,changenestpos=changenestpos,syncmeta=syncmeta,removepos=removepos,reinit=reinit,clearreports=clearreports}
+local function getmetadata(tabl)
+if not typevalidTable[tabl[1]] then return nil,15 end
+  local metaoutput = ram.data.posdatamanager.metadata[tabl[1]]
+  return metaoutput, "getmetadata",0
+end
+return {addpos=addpos,clearid=clearid,changenestpos=changenestpos,syncmeta=syncmeta,removepos=removepos,reinit=reinit,clearreports=clearreports,getmetadata=getmetadata}
 --TODO: upd errorhandler, help, format. proceed with test
