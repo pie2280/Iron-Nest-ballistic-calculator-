@@ -19,7 +19,8 @@ local commandTable ={
   ["addpos"]=pos.addpos,
   ["removepos"]=pos.removepos,
   ["changenestpos"]=pos.changenestpos,
-  ["clearreports"]=pos.clearreports
+  ["clearreports"]=pos.clearreports,
+  ["getmetadata"]=pos.getmetadata
 }
 local function translate(cmd_str)
   local cmd
